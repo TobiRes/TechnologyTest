@@ -7,16 +7,24 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+  <!-- Input to capture data for the QR-Code we want to generate -->
   <ion-item>
-    <!-- Input to capture data for the QR-Code we want to generate -->
     <ion-input type="text" placeholder="My QR data" [(ngModel)]="qrData">
     </ion-input>
   </ion-item>
 
   <!-- 2 Buttons to either create or scan QR-Codes -->
-  <button ion-button full icon-left (click)="createCode()">Create QR-Code <ion-icon name="barcode"></ion-icon></button>
-  <button ion-button full icon-left (click)="scanCode()">Scan QR-Code <ion-icon name="qr-scanner"></ion-icon></button>
+  <div style="padding-top: 10px;">
+    <button  ion-button block icon-left (click)="createCode()">
+      <ion-icon name="barcode"></ion-icon>Create QR-Code
+    </button>
+
+    <button ion-button block icon-left (click)="scanCode()">
+      <ion-icon name="qr-scanner"></ion-icon>Scan QR-Code
+    </button>
+  </div>
 
   <!--Display the QR-Code, but only if createdCode is true -->
   <ion-card *ngIf="createdCode">

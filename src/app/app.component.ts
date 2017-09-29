@@ -8,6 +8,8 @@ import { AlertController } from "ionic-angular";
 
 import { HomePage } from '../pages/home/home';
 import {QrscanPage} from "../pages/qrscan/qrscan";
+import {MapPage} from "../pages/map/map";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +27,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'QR Code Scanner', component: QrscanPage }
+      { title: 'QR Code Scanner', component: QrscanPage },
+      { title: 'Map', component: MapPage}
     ];
     this.pushsetup();
   }

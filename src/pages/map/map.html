@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Current Position</ion-title>
+    </ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+
+  <div style="padding-top: 10px;">
+    <button ion-button block icon-left (click)="locateUser()">
+      <ion-icon name="locate-outline"></ion-icon> Position</button>
+    <ion-item>
+      <ion-label>Latitude: {{lat}}</ion-label>
+      <ion-label>Longitude: {{lng}}</ion-label>
+    </ion-item>
+  </div>
+</ion-content>
