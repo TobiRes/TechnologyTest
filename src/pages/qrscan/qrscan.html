@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>QR Code Scanner</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <!-- Input to capture data for the QR-Code we want to generate -->
+    <ion-input type="text" placeholder="My QR data" [(ngModel)]="qrData">
+    </ion-input>
+  </ion-item>
+
+  <!-- 2 Buttons to either create or scan QR-Codes -->
+  <button ion-button full icon-left (click)="createCode()">Create QR-Code <ion-icon name="barcode"></ion-icon></button>
+  <button ion-button full icon-left (click)="scanCode()">Scan QR-Code <ion-icon name="qr-scanner"></ion-icon></button>
+
+  <!--Display the QR-Code, but only if createdCode is true -->
+  <ion-card *ngIf="createdCode">
+    <!-- Tag from the ngx-qrcode package, set the value to the string value of the created code -->
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    <ion-card-content>
+      <!--Just to check the value again -->
+      <p>Value: {{ createdCode}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Display the scanned code -->
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Result from Scan: {{ scannedCode }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
