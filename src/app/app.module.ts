@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {QrscanPage} from "../pages/qrscan/qrscan";
 import { MapPage } from "../pages/map/map";
+import { SharingPage } from "../pages/sharing/sharing";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,6 +15,8 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { Push } from "@ionic-native/push";
 import { Geolocation } from "@ionic-native/geolocation";
 import { AgmCoreModule } from "@agm/core";
+import { SocialSharing } from "@ionic-native/social-sharing";
+
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { AgmCoreModule } from "@agm/core";
     MyApp,
     HomePage,
     QrscanPage,
-    MapPage
+    MapPage,
+    SharingPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { AgmCoreModule } from "@agm/core";
     MyApp,
     HomePage,
     QrscanPage,
-    MapPage
+    MapPage,
+    SharingPage
   ],
   providers: [
     StatusBar,
@@ -44,7 +49,8 @@ import { AgmCoreModule } from "@agm/core";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
     Push,
-    Geolocation
+    Geolocation,
+    SocialSharing
   ],
   schemas:  [ CUSTOM_ELEMENTS_SCHEMA ]
 })

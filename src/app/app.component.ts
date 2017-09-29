@@ -9,6 +9,7 @@ import { AlertController } from "ionic-angular";
 import { HomePage } from '../pages/home/home';
 import {QrscanPage} from "../pages/qrscan/qrscan";
 import {MapPage} from "../pages/map/map";
+import {SharingPage} from "../pages/sharing/sharing";
 
 
 @Component({
@@ -28,7 +29,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'QR Code Scanner', component: QrscanPage },
-      { title: 'Map', component: MapPage}
+      { title: 'Map', component: MapPage},
+      { title: 'Sharing', component: SharingPage}
     ];
     this.pushsetup();
   }
