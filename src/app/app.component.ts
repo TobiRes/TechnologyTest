@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import {QrscanPage} from "../pages/qrscan/qrscan";
 import {MapPage} from "../pages/map/map";
 import {SharingPage} from "../pages/sharing/sharing";
+import {Deeplinks} from "@ionic-native/deeplinks";
 
 
 @Component({
@@ -22,7 +23,32 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public push: Push,
+    public alertCtrl: AlertController,
+    private deeplinks: Deeplinks) {
+
+    platform.ready().then(() => {
+      this.statusBar.styleDefault();
+
+      //This is the code who responds to the app deeplinks
+      //Deeplinks if from Ionic Native
+      this.deeplinks.routeWithNavController(this.nav, {
+        '/about': HomePage,
+        '/map': MapPage,
+        '/qr': QrscanPage
+      }).subscribe((match) => {
+        console.log('Successfully routed', match);
+      }, (nomatch) => {
+        console.log('Unmatched Route', nomatch);
+      });
+    });
+
+
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation

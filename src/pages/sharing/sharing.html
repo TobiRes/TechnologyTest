@@ -11,5 +11,10 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block (click)="share()">Share</button>
+  <button ion-button block (click)="share('home')">Share Home</button>
+  <button ion-button block (click)="share('map')">Share Map</button>
+  <button ion-button block (click)="share('qr')">Share QR Scan</button>
+  <button ion-button block> <a hre="techtest://techtest.com/map"></a>Deeplink Test</button>
+
+
 </ion-content>

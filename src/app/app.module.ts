@@ -16,6 +16,7 @@ import { Push } from "@ionic-native/push";
 import { Geolocation } from "@ionic-native/geolocation";
 import { AgmCoreModule } from "@agm/core";
 import { SocialSharing } from "@ionic-native/social-sharing";
+import { Deeplinks } from "@ionic-native/deeplinks";
 
 
 
@@ -50,7 +51,8 @@ import { SocialSharing } from "@ionic-native/social-sharing";
     BarcodeScanner,
     Push,
     Geolocation,
-    SocialSharing
+    SocialSharing,
+    Deeplinks
   ],
   schemas:  [ CUSTOM_ELEMENTS_SCHEMA ]
 })

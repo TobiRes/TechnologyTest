@@ -24,27 +24,12 @@ export class SharingPage {
     console.log('ionViewDidLoad SharingPage');
   }
 
-  share(){
-    alert("test");
-    var options = {
-      message: "Share this",
-      subject: "This subject",
-      files: ["", ""],
-      chooserTitle: "Pick an app"
-    }
-
-    var onSuccess = function(result) {
-      alert("Alert");
-      console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
-      console.log("Shared to app: " + result.app); // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
-    }
-
-    var onError = function(msg) {
-      alert("Alert");
-      console.log("Sharing failed with message: " + msg);
-    }
-
-    window['plugins'].socialSharing.shareWithOptions(options, onSuccess, onError);
+  share(item){
+    this.socialSharing.share("Check this feature:  techtest://techtest.com/" + item)
+      .then(() => {
+      })
+      .catch(() => {
+      });
   }
 
 
